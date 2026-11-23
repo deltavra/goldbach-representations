@@ -1,0 +1,7 @@
+R(50050 - 4*35*i), i=1..10: 1202 2194 1108 1106 2258 1202 1098 2142 1210 1062
+R(50050 - 4*37*i), i=1..10: 1384 697 736 1394 894 712 1646 700 675 1850
+Direct vs. polynomial counts: 250 (including 60 with prime k)
+Exact product moments: 288 comparisons, period 1155, 480 unit classes
+Simultaneous CRT classes: 9 progressions checked through index 34051
+Sieve roots at (7, 11, 13, 17): [1, 2, 2, 2]; complete-period survivors 8910/17017
+Sieve on 2093 consecutive k: successive bounds [845, 1123, 1096, 1097]; survivors 1097

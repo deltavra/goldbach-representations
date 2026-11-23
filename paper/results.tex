@@ -1,0 +1,127 @@
+\section{The endpoint and the sampling law}
+
+Let \(R(n)\) be the number of ordered pairs of primes with sum \(n\). The
+Hardy--Littlewood main term for \(R(n)\), for even \(n\), is
+\(n\SSer(n)/(\log n)^2\), where
+\begin{equation}\label{eq:series}
+ C_2=\prod_{p>2}\left(1-\frac{1}{(p-1)^2}\right),\qquad
+ \SSer(n)=2C_2\prod_{\substack{p\mid n\\p>2}}\frac{p-1}{p-2}.
+\end{equation}
+Along a progression with step divisible by all small primes,
+the corresponding factors in \eqref{eq:series} stay fixed. The larger
+prime divisors depend on the position in the progression. We determine
+how large their combined effect becomes among a growing number of actual
+Goldbach counts.
+
+All logarithms are natural. Let \(N\) tend to infinity through the even
+integers. Write
+\begin{equation}\label{eq:parameters}
+ L=\log N,\quad w=\log L,\quad W=\prod_{p\le w}p,\quad
+ K=\lfloor L^D\rfloor,\quad
+ X_N=\frac{N}{L^2}\,2C_2\prod_{\substack{2<p\le w\\p\mid N}}
+                                 \frac{p-1}{p-2},
+\end{equation}
+where \(D>0\) is fixed. Set \(\sigma=8/33\). Fix
+\(0<\varepsilon<(1-\sigma)/2\) and choose
+\(N^{\sigma+\varepsilon}\le H\le N^{1-\varepsilon}\). Put \(Y=H/W\).
+Choose \(k\) uniformly from the integers in \((Y,2Y]\), or uniformly
+from the primes in that interval. In both cases let \(h=Wk\). The
+probability and expectation below refer solely to this choice of \(k\).
+In particular, all estimates are uniform over the even endpoints \(N\)
+and admissible \(H\). For \(1\le i\le K\), put
+\[
+ n_i=N-ih,\qquad Z_i=(\log w)\log\frac{R(n_i)}{X_N}.
+\]
+Set \(Z_i=-\infty\) if \(R(n_i)=0\).
+
+\begin{theorem}\label{thm:main}
+For either sampling law,
+\[
+  \min_{1\le i\le K}Z_i \ \xrightarrow{\ \mathrm{P}\ }\ 0,
+  \qquad
+  \max_{1\le i\le K}Z_i \ \xrightarrow{\ \mathrm{P}\ }\ \log(1+D).
+\]
+For \(0<t<\log(1+D)\), let \(C_t=\#\{1\le i\le K:Z_i\ge t\}\).
+Then
+\begin{equation}\label{eq:profile}
+        C_t=L^{D-(e^t-1)+o_{\mathrm P}(1)} .
+\end{equation}
+Precisely, for every fixed \(\eta>0\), the probability that
+\(L^{D+1-e^t-\eta}\le C_t\le L^{D+1-e^t+\eta}\) tends to one.
+\end{theorem}
+
+For example, take \(K=\lfloor\log N\rfloor\). The largest value of
+\(Z_i\) then tends in probability to \(\log 2\), and
+\(L^{1/2+o_{\mathrm P}(1)}\) positions reach the level \(\log(3/2)\).
+The endpoint \(N\) may be chosen before the step. The theorem concerns the
+positive indices \(i\ge1\) and leaves \(R(N)\) undetermined.
+
+Erd\H{o}s and K\'atai studied maxima of a nonnegative strongly additive
+function along consecutive integers with the starting integer varying.
+Their Theorem~4 treats the prime values \(g(p)=1/p\)
+\cite{EK}. Weingartner estimated tails of the limiting distributions
+of \(\sigma(n)/n\) and \(n/\varphi(n)\) by analysing high moments of
+Euler products \cite{Wei}. Languasco computed fixed-order moments of
+the full binary Goldbach singular series over \(n\le x\) and applied them
+to Goldbach numbers in short intervals \cite{Lan}.
+Here the cutoff \(w\) varies with the endpoint,
+the step supplies the randomness, and all positions share this step. The
+proof retains the factors at primes dividing both the index \(i\) and
+the prescribed endpoint \(N\). These factors can be large for an
+individual \(i\). Averaging them over the index range preserves the
+exponential rate.
+
+\section{Transferring the averaged Goldbach theorem}
+
+Let \(\Lambda\) be the von Mangoldt function and write
+\(G(n)=\sum_{p+q=n}\log p\log q\), the sum running over ordered prime
+pairs. We use Theorem~1.3(iv) of Matom\"aki, Radziwi{\l}{\l} and Tao
+\cite{MRT}. For fixed \(\varepsilon'>0\) in the range of that theorem,
+\(x^{\sigma+\varepsilon'}\le Z\le x^{1-\varepsilon'}\), and any
+\(E>0\), one has
+\begin{equation}\label{eq:mrt}
+  \sum_{a+b=n}\Lambda(a)\Lambda(b)
+     = n\SSer(n)+O_{E,\varepsilon'}(x/\log^E x)
+\end{equation}
+for all but \(O_{E,\varepsilon'}(Z/\log^E x)\) even integers in
+\([x,x+Z]\). This is the analytic input about binary Goldbach counts.
+
+\begin{lemma}\label{lem:transfer}
+Let \(y=L^2\), and put
+\[
+        T_i(k)=\sum_{\substack{w<p\le y\\p\mid n_i}}\frac1p .
+\]
+For each fixed \(A>0\), outside a set of \(k\) of probability
+\(O_{A,D,\varepsilon}(L^{-A})\) under either law, all \(R(n_i)>0\) and
+\begin{equation}\label{eq:transfer}
+        \max_{i\le K}|Z_i-(\log w)T_i(k)|=o(1).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For a fixed \(i\le K\), apply \eqref{eq:mrt} with
+\(x=N-2iH\), \(Z=iH\) and \(\varepsilon'=\varepsilon/2\).
+Here \(x\sim N\), and the factor \(i\le L^D\) fits inside the slack
+at the upper end of the permissible range. Each exceptional \(n_i\)
+determines at most one \(k\). Summing over \(i\) costs
+\(O_{E,D,\varepsilon}(K^2H/L^E)\) choices. The prime number theorem
+gives \(\log W=(1+o(1))w\). The two sampling sets have sizes
+\(\asymp Y\) and \(\asymp Y/\log Y\), respectively. Choosing \(E\)
+large compared with \(A\) and \(D\) proves the probability estimate.
+
+There are \(O(\sqrt N L)\) nontrivial prime powers up to \(N\).
+Their contribution for a given \(n_i\) is \(O(\sqrt N L^3)\).
+For \(p,q>N/L^4\), the weight \((\log p)(\log q)\) equals
+\(L^2(1+O(w/L))\). At most \(2N/L^4+O(1)\) ordered pairs have a smaller
+endpoint. Since \(\SSer(n_i)\ge2C_2\), on the retained steps these estimates
+give, uniformly in \(i\),
+\[
+ R(n_i)=\frac{N\SSer(n_i)}{L^2}
+             \left(1+O\left(\frac{w}{L}+\frac{KH}{N}\right)\right).
+\]
+For \(p\le w\), membership in the prime divisors of \(n_i\) is fixed by
+\(N\). Above \(w\), replacing
+\(\log((p-1)/(p-2))\) by \(1/p\) costs \(O(\sum_{m>w}m^{-2})=O(1/w)\).
+Finally \(\sum_{p>y,\,p\mid n_i}1/p\le L/(y\log y)\). Multiplication
+by \(\log w\) sends all these errors to zero.
+\end{proof}

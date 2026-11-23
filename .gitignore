@@ -1,0 +1,7 @@
+/.lake/
+/lean/.lake/
+__pycache__/
+*.aux
+*.log
+*.out
+*.xdv

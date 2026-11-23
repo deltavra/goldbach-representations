@@ -1,0 +1,84 @@
+\section{Steps with a common singular series}\label{sec:sparse}
+
+Write \(S_w(N)=L^2X_N/N\) for the truncated singular series in
+\eqref{eq:parameters}. We can select integer multipliers for which a
+growing initial segment of the progression has this same factor to
+arbitrary inverse-logarithmic accuracy.
+
+\begin{theorem}\label{thm:sparse}
+Fix \(A,c>0\) and set \(r=\lfloor cw/\log w\rfloor\).
+For every sufficiently large even \(N\) and every admissible \(H\),
+at least \(Y L^{-c-o(1)}\) integers \(k\in(Y,2Y]\) satisfy
+\begin{equation}\label{eq:sparse}
+    G(n_i)=n_i S_w(N)+O_{A,c,\varepsilon}(N/L^A)
+    \qquad (1\le i\le r).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Put \(z=L^{A+4}\). For each prime \(w<p\le z\), exclude the residues
+of \(k\bmod p\) for which \(p\mid N-iWk\) for at least one
+\(1\le i\le r\). For large \(N\) we have \(r<w/2\). Thus \(iW\) is
+invertible modulo \(p\), and the number of excluded residues is
+\[
+ \rho(p)=
+ \begin{cases}
+  1,&p\mid N,\\
+  r,&p\nmid N .
+ \end{cases}
+\]
+Indeed, the residues \(N(iW)^{-1}\bmod p\) coincide at zero in the
+first case and are distinct in the second. Let
+\[
+ V=\prod_{w<p\le z}(1-\rho(p)/p),\qquad
+ U=\sum_{w<p\le z}\rho(p)/p .
+\]
+By Mertens' estimate,
+\(U\le r(\log\log z-\log\log w+O(1))\le(c+o(1))w\).
+Also \(\sum_{w<p\le z}(\rho(p)/p)^2\ll r^2/w=o(w)\). Expanding the
+logarithm gives \(\log V\ge-(c+o(1))w\).
+
+We next count the surviving integers in \((Y,2Y]\). Fix \(B>c+1\).
+For a squarefree product \(d\) of the sieving primes, put
+\(\rho(d)=\prod_{p\mid d}\rho(p)\). The Chinese remainder theorem gives
+\(Y\rho(d)/d+O(\rho(d))\) multipliers in the intersection of the
+corresponding excluded classes. Truncate inclusion--exclusion at the
+consecutive orders \(t-1,t\), with \(t\) odd. The two Bonferroni bounds
+for the model proportion bracket \(V\) and differ by at most
+\(U^t/t!\). Choose \(t=Cw+O(1)\) with \(C\) sufficiently large in
+terms of \(A,c,B\). Then \(U^t/t!\le(eU/t)^t\ll L^{-B}\).
+For either truncation the total rounding error, divided by \(Y\), is
+at most a constant times
+\[
+ Y^{-1}\!\!\sum_{\substack{d\\\omega(d)\le t}}\rho(d)
+ \le Y^{-1}(1+rz)^t
+ =Y^{-1}\exp(O_{A,c,B}(w^2))=o(L^{-B}),
+\]
+where the sum runs over the squarefree products just specified and
+\(\log Y\gg_\varepsilon L\). The integer count is therefore
+\(Y(V+O_{A,c,B,\varepsilon}(L^{-B}))\).
+
+For a surviving \(k\), every prime divisor of \(n_i\) up to \(z\)
+already lies below or at \(w\), where \(n_i\equiv N\pmod W\) fixes
+the local factors. For all \(i\le r\) we have
+\[
+ 0\le\log\frac{\SSer(n_i)}{S_w(N)}
+   \ll\sum_{\substack{p>z\\p\mid n_i}}\frac1p
+   \le \frac{L}{z\log z}.
+\]
+Mertens' product estimate gives \(S_w(N)\ll\log w\).
+Thus \(n_i\SSer(n_i)=n_i S_w(N)+O_A(N/L^A)\).
+
+Finally apply \eqref{eq:mrt} on \([N-2iH,N-iH]\) for each \(i\le r\).
+As in Lemma~\ref{lem:transfer}, the exceptional multipliers number
+\(O_{E,\varepsilon}(r^2H/L^E)\). Since \(W=L^{1+o(1)}\) and \(H=WY\),
+we may choose \(E>A+B+3\) to bound this number by \(O(YL^{-B})\).
+Removing higher prime powers costs \(O(\sqrt N L^3)\) at each target.
+The resulting count of multipliers is still at least \(Y L^{-c-o(1)}\),
+and each satisfies \eqref{eq:sparse}.
+\end{proof}
+
+When \(N\) runs through powers of two, each sieving prime excludes exactly
+\(r\) classes. In this case \(U=(c+o(1))w\) and the sieve itself retains
+\(Y L^{-c+o(1)}\) multipliers. This measures the size of the particular
+selection used in the proof.

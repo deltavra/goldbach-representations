@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1.05in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\E}{\mathbb E}
+\newcommand{\SSer}{\mathfrak S}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\Prob}{\mathbb P_k}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\doilink}[1]{\href{https://doi.org/#1}{doi:\,#1}}
+\title{Extremes of Goldbach counts on progressions\\ with a prescribed endpoint}
+% Enter the author's approved public byline here before arXiv submission.
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+Fix a large even integer \(N\). We study the number \(R(N-ih)\) of ordered
+representations as a sum of two primes along a progression leading up to \(N\).
+The step \(h\) is a multiple of the product of the primes up to
+\(w=\log\log N\). If \(1\le i\le(\log N)^D\), the maximum of
+\((\log w)\log(R(N-ih)/X_N)\) converges in probability to \(\log(1+D)\),
+where \(X_N\) is the Hardy--Littlewood main term with its local factors
+truncated at \(w\). At each fixed level \(0<t<\log(1+D)\), the number
+of exceedances is \((\log N)^{D+1-e^t+o_{\mathbb P}(1)}\).
+Both statements hold when the multiplier is sampled uniformly from the
+eligible integers or the eligible primes, uniformly over prescribed
+endpoints and step intervals \((H,2H]\) with
+\(N^{8/33+\varepsilon}\le H\le N^{1-\varepsilon}\).
+The proof transfers a large-deviation estimate for reciprocal prime divisors
+to actual representation counts using the averaged Goldbach theorem of
+Matom\"aki, Radziwi{\l}{\l} and Tao.
+\end{abstract}
+\input{results}
+\input{arithmetic}
+\input{sparse}
+\input{references}
+\end{document}

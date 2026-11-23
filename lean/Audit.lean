@@ -1,0 +1,9 @@
+import Goldbach
+
+#check Goldbach.goldbach_through_4294967296
+#check Goldbach.summand_le_1789_iff_ne_1847133842
+#check Goldbach.uniform_summand_bound_iff
+
+#print axioms Goldbach.goldbach_through_4294967296
+#print axioms Goldbach.summand_le_1789_iff_ne_1847133842
+#print axioms Goldbach.uniform_summand_bound_iff

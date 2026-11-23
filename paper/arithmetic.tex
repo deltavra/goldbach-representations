@@ -1,0 +1,133 @@
+\section{Large values from primes above the cutoff}
+
+Fix \(\lambda>1\), and put \(\tau=\lambda w\log w\) and
+\(b_p=\exp(\tau/p)-1\). The following product measures the exponential
+cost of forcing prime divisors just above \(w\).
+\begin{lemma}\label{lem:product}
+For \(y=L^2\),
+\[
+ A_\lambda=\prod_{w<p\le y}\left(1+\frac{b_p}{p}\right),\qquad
+ \log A_\lambda=w(\lambda\log\lambda-\lambda+1)+o_\lambda(w).
+\]
+\end{lemma}
+\begin{proof}
+Fix \(0<\delta<(\lambda-1)/2\). For \(p=uw\) and
+\(1\le u\le\lambda-\delta\),
+\[
+ \log(1+b_p/p)=(\lambda/u-1)\log w+O_\lambda(1)
+\]
+uniformly as \(w\to\infty\). The prime number theorem and partial summation
+give a contribution
+\(w\int_1^{\lambda-\delta}(\lambda/u-1)\dd u+o_{\lambda,\delta}(w)\).
+For \((\lambda-\delta)w<p\le(\lambda+\delta)w\), each logarithm is
+\(O_\lambda(\log w)\). The prime number theorem bounds their sum by
+\(O_\lambda(\delta w)+o_{\lambda,\delta}(w)\). For \(p>(\lambda+\delta)w\),
+use \(e^v-1\le ve^v\) for \(v\ge0\). The remaining sum is at most
+\[
+ \tau w^{\lambda/(\lambda+\delta)}
+          \sum_{m>(\lambda+\delta)w}m^{-2}=o_{\lambda,\delta}(w).
+\]
+Letting \(\delta\) decrease to zero evaluates the integral as stated.
+\end{proof}
+
+\begin{lemma}\label{lem:moment}
+For either sampling law and each fixed \(\lambda>1\),
+\[
+ \sum_{i\le K}\E_k e^{\tau T_i(k)}
+       \le K A_\lambda e^{o_\lambda(w)},\qquad
+ \E_k e^{\tau T_1(k)}\le A_\lambda e^{o_\lambda(w)}.
+\]
+\end{lemma}
+\begin{proof}
+When \(p\mid i\), the condition \(p\mid N-iWk\) holds for every \(k\)
+if \(p\mid N\), and for no \(k\) otherwise. Every other prime in \((w,y]\)
+specifies a single residue class for \(k\bmod p\). In the product
+\(\prod_{w<p\le y}(1+b_p\ind_{p\mid n_i})\), take out the constant
+factors at \(p\mid(i,N)\) and expand over the primes \(p\nmid i\).
+For a squarefree product \(d\), all its congruences specify one class
+modulo \(d\) by the Chinese remainder theorem. The sum of all expansion
+weights, including the factors forced by \(p\mid(i,N)\), is at most
+\[
+ \prod_{w<p\le y}(1+b_p)
+    =\exp\left(\tau\sum_{w<p\le y}1/p\right)
+    \le \exp(O_\lambda(w^2\log w))=Y^{o(1)}.
+\]
+For integer \(k\), a class contains \(Y/d+O(1)\) points in the interval.
+Thus its expected contribution uses \(1/d\), with total additive error
+\(Y^{-1+o(1)}\) after normalization by \(Y+O(1)\).
+
+For prime \(k\), take \(d\le\sqrt Y\) first. A non-reduced class
+contains no eligible prime, since every prime factor of \(d\) is at most
+\(y<Y\). For a reduced class the Brun--Titchmarsh inequality
+\cite[Theorem~2, (1.10)]{MV} bounds its probability by
+\(O(1/\varphi(d))\), using the prime number theorem for the denominator
+and treating \(d=1\) directly. Uniformly over these \(d\),
+\(d/\varphi(d)\ll\log y=e^{o(w)}\) by Mertens' theorem. For larger \(d\)
+the integer count bounds the probability by
+\(O((Y^{-1/2}+Y^{-1})\log Y)\). With the expansion weights, its total
+contribution is \(Y^{-1/2+o(1)}\).
+
+Combining the two estimates and retaining all the positive local factors
+in \(A_\lambda\), we obtain, under either law,
+\[
+ \E_k e^{\tau T_i(k)}
+   \le e^{o_\lambda(w)} A_\lambda
+        \prod_{\substack{w<p\le y\\p\mid(i,N)}}g_p+o(1),
+ \qquad g_p=\frac{1+b_p}{1+b_p/p}\le\min(p,1+b_p).
+\]
+The errors here are uniform in \(i\) and \(N\). To sum the product over
+\(i\le K\), expand it in the nonnegative factors \(g_p-1\). A squarefree
+product \(d\) divides \(\lfloor K/d\rfloor\) of these indices. Consequently
+the average is at most
+\[
+ \prod_{\substack{w<p\le y\\p\mid N}}\left(1+\frac{g_p-1}{p}\right)
+        =e^{o_\lambda(w)} .
+\]
+Indeed, the factors with \(p\le2\lambda w\) are at most \(2\), and there
+are \(O_\lambda(w/\log w)\) of them. The sum of the remaining logarithms
+is at most \(\sum_{p>2\lambda w} b_p/p\ll_\lambda \sqrt w\log w\),
+by the same exponential bound as in Lemma~\ref{lem:product}. For \(i=1\)
+the product over common divisors is empty.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Write \(U_i=(\log w)T_i(k)\). For a fixed \(s>0\) take
+\(\lambda=e^s\) in Lemmas~\ref{lem:product} and~\ref{lem:moment}.
+Markov's inequality yields
+\begin{align}
+ \E_k\#\{i\le K:U_i\ge s\}
+   &\le L^{D+1-e^s+o(1)}, \label{eq:upper}\\
+ \Prob(U_1\ge s)&\le L^{1-e^s+o(1)}. \nonumber
+\end{align}
+Here the exponential penalty is \(\exp(-\lambda sw)\).
+Since \(U_i\ge0\), the second inequality gives the limit for the minimum.
+For \(s>\log(1+D)\), the first gives the upper bound for the maximum.
+
+For \(1<c<1+D\), let \(P_c=\prod_{w<p\le cw}p\). The prime number theorem
+and partial summation give
+\[
+ \log P_c=(c-1+o(1))w,\qquad
+ (\log w)\sum_{w<p\le cw}1/p=\log c+o(1).
+\]
+The first estimate implies \(P_c=o(K)\). For integer multipliers the
+probability of a common factor of \(k\) and \(P_c\) is at most
+\(\sum_{w<p\le cw}(1/p+O(1/Y))=O_c(1/\log w)\). Every prime multiplier
+in the sampling interval exceeds \(cw\). Whenever \((k,P_c)=1\), the class
+\[
+             i\equiv N(Wk)^{-1}\pmod{P_c}
+\]
+contains \(K/P_c+O(1)=L^{D+1-c+o(1)}\) indices in \([1,K]\).
+Every prime dividing \(P_c\) divides \(n_i\) at each such index, so
+\(U_i\ge\log c+o(1)\). Taking \(c\) arbitrarily close to \(1+D\) from
+below gives the lower bound for the maximum.
+
+For a level \(0<t<\log(1+D)\), the same construction with \(c>e^t\)
+supplies the lower bound in \eqref{eq:profile} by taking \(c\) as close to
+\(e^t\) as the prescribed exponent tolerance requires. Its strict margin
+\(\log c-t\) absorbs the error in Lemma~\ref{lem:transfer}. For the upper
+bound apply \eqref{eq:upper} at \(s<t\) sufficiently close to \(t\),
+then apply Markov's inequality to the count. Lemma~\ref{lem:transfer}
+bounds the difference between all the \(U_i\) and \(Z_i\) simultaneously
+on a set of probability tending to one. This also transfers the two
+extreme-value limits to the representation counts.
+\end{proof}
