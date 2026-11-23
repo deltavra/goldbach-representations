@@ -6,7 +6,7 @@
 
 | Question | Result and source |
 | --- | --- |
-| What does a typical progression tell us about a fixed endpoint? | Choose the even endpoint $N$ first, then sample the step $h$. For $1\le i\le(\log N)^D$, the paper derives a limit of $\log(1+D)$ for the largest normalized count at $N-ih$. The endpoint itself has index $i=0$. [Manuscript](paper/main.tex) · [Moment bound and matching lower bound](paper/arithmetic.tex) · [Steps with a common singular series](paper/sparse.tex) |
+| What does a typical progression tell us about a fixed endpoint? | Choose the even endpoint $N$ first, then sample the step $h$. For $1\le i\le(\log N)^D$, the paper derives a limit of $\log(1+D)$ for the largest normalized count at $N-ih$. The endpoint itself has index $i=0$. [Paper (PDF)](paper/goldbach-progressions.pdf) · [TeX source](paper/main.tex) · [Moment bound and matching lower bound](paper/arithmetic.tex) · [Steps with a common singular series](paper/sparse.tex) |
 | Which finite computations can I reproduce? | Run `python experiments/check.py` from the repository root. It compares 250 ordered Goldbach counts using two methods and checks the local product moments, congruences and sieve bounds by exact arithmetic. [Code](experiments/check.py) · [Expected output](experiments/expected.txt) |
 | What has Lean checked? | Every even integer from 4 through $2^{32}$ has a partition with a prime summand at most 1,861. Only 1,847,133,842 needs a summand larger than 1,789. [Build and audit](lean/README.md) · [Theorem declarations](lean/Goldbach/ExtendedOdd/Certificate32.lean) |
 
